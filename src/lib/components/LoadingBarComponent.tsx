@@ -8,24 +8,18 @@ import {
 } from './Style'
 import ScaleLoader from 'react-spinners/ScaleLoader'
 import { withTheme } from 'styled-components'
+import { ILoadingBarProps } from './interfaces'
 
-export interface ILoadingBarComponent {
-	progress: number
-	appearance?: string
-	onFinish(finished: Promise<void>): void
-	theme: Object
-}
-
-const LoadingBarComponent: React.FC<ILoadingBarComponent> = ({
+const LoadingBarComponent: React.FC<ILoadingBarProps> = ({
 	progress = 0,
-	appearance = 'default',
+	appearance,
 	onFinish,
 	theme
 }) => {
 	useEffect(() => {
 		if (progress >= 100 && onFinish) {
 			onFinish(
-				new Promise((resolve, reject) => {
+				new Promise((resolve) => {
 					setTimeout(() => {
 						resolve()
 					}, 800)

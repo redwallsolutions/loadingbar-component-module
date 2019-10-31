@@ -1,11 +1,8 @@
 import styled, { createGlobalStyle, keyframes } from 'styled-components'
-import Theming from '@redwallsolutions/theming-component-module'
+import { createThemeWithAppearance } from '@redwallsolutions/theming-component-module'
+import { ICommonProps } from './interfaces'
 
-export const theme = Theming.createThemeWithAppearance()
-
-const defaultProps = {
-	appearance: 'default'
-}
+export const theme = createThemeWithAppearance()
 
 export const Reset = createGlobalStyle`
     .loading-bar-component-module {
@@ -30,7 +27,7 @@ const hideLoadingBar = keyframes`
     }
 `
 
-export const LoadingBarStyled = styled.div`
+export const LoadingBarStyled = styled.div<ICommonProps>`
 	height: 3px;
 	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
 	background-color: ${props => theme(props).color};
@@ -46,10 +43,9 @@ export const LoadingBarStyled = styled.div`
 	left: 0;
 `
 
-LoadingBarStyled.defaultProps = defaultProps
-
-export const SpinnerContainer = styled.div`
-    opacity: ${props => props.progress >= 1 && props.progress <= 100 ? '1' : '0'};
+export const SpinnerContainer = styled.div<ICommonProps>`
+	opacity: ${props =>
+		props.progress >= 1 && props.progress <= 100 ? '1' : '0'};
 	animation-delay: 2s;
 	animation-duration: 0.3s;
 	animation-delay: 0.5s;
@@ -60,5 +56,3 @@ export const SpinnerContainer = styled.div`
 	top: 10px;
 	right: 7px;
 `
-
-SpinnerContainer.defaultProps = defaultProps
