@@ -11,7 +11,7 @@ import { ILoadingBarProps } from './interfaces'
 
 const LoadingBarComponent: React.FC<ILoadingBarProps> = ({
 	progress = 0,
-	appearance,
+	appearance = "primary",
 	onFinish,
 	theme
 }) => {

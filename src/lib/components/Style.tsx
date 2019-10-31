@@ -11,9 +11,11 @@ export const Reset = createGlobalStyle`
         position: fixed;
         top: 0;
         left: 0;
-        width: 100vw;
+		width: 100vw;
+		z-index: 999;
         * {
-            transition: 0.4s ease-in-out;
+			transition: 0.4s ease-in-out;
+			box-sizing: border-box;
         }
     }
 `
@@ -29,7 +31,7 @@ const hideLoadingBar = keyframes`
 
 export const LoadingBarStyled = styled.div<ICommonProps>`
 	height: 3px;
-	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+	box-shadow: 0 0 10px 0 ${props => theme(props).color};
 	background-color: ${props => theme(props).color};
 	width: ${props => props.progress}%;
 	animation-delay: 2s;
@@ -54,5 +56,5 @@ export const SpinnerContainer = styled.div<ICommonProps>`
 		props.progress >= 100 || props.progress <= -1 ? hideLoadingBar : 'redwall'};
 	position: fixed;
 	top: 10px;
-	right: 7px;
+	right: 18px;
 `

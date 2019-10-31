@@ -1,5 +1,5 @@
 interface IThemeProps {
-    mode: 'light' | 'dark'
+    mode: "light" | "dark"
 }
 
 export interface ICommonProps {
