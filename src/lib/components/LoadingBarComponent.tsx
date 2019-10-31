@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react'
-import PropTypes from 'prop-types'
 import {
 	Reset,
 	LoadingBarStyled,
@@ -44,12 +43,6 @@ const LoadingBarComponent: React.FC<ILoadingBarProps> = ({
 			)}
 		</div>
 	)
-}
-
-LoadingBarComponent.propTypes = {
-	progress: PropTypes.number.isRequired,
-	appearance: PropTypes.string,
-	onFinish: PropTypes.func.isRequired
 }
 
 export default withTheme(LoadingBarComponent)

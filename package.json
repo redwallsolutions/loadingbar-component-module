@@ -1,6 +1,6 @@
 {
   "name": "@redwallsolutions/loading-bar-component-module",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "license": "MIT",
@@ -10,7 +10,8 @@
   "repository": "https://github.com/redwallsolutions/loading-bar-component-module",
   "scripts": {
     "start": "rimraf demo/output && parcel demo/index.html -d demo/output --open",
-    "build": "rimraf dist && tsc"
+    "build": "rimraf dist && tsc",
+    "release": "yarn build && npm publish"
   },
   "devDependencies": {
     "@babel/cli": "^7.6.4",
