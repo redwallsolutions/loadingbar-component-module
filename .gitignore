@@ -4,6 +4,7 @@
 /build
 /dist
 /.cache
+/demo/output
 .DS_Store
 .env.local
 .env.development.local
