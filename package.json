@@ -12,12 +12,12 @@
   "scripts": {
     "start": "rimraf demo/output && parcel demo/index.html -d demo/output --open",
     "build": "rimraf dist && tsc",
+    "predeploy": "rimraf demo/output && parcel build demo/index.html -d demo/output --open --public-url ./",
+    "deploy": "gh-pages -d demo/output",
     "release": "yarn build && npm publish"
   },
   "devDependencies": {
-    "@babel/cli": "^7.6.4",
     "@babel/core": "^7.6.4",
-    "@babel/preset-react": "^7.6.3",
     "@types/react-dom": "16.9.2",
     "@types/styled-theming": "^2.2.2",
     "babel-preset-react-app": "^9.0.2",

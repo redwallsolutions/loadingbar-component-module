@@ -38457,7 +38457,7 @@ var styled_components_1 = require("styled-components");
 
 var lib_1 = __importDefault(require("./lib"));
 
-var Reset = styled_components_1.createGlobalStyle(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n\tbody {\n\t\tpadding: 0;\n\t\tmargin: 0;\n\t\toverflow: hidden;\n\t}\n"], ["\n\tbody {\n\t\tpadding: 0;\n\t\tmargin: 0;\n\t\toverflow: hidden;\n\t}\n"])));
+var Reset = styled_components_1.createGlobalStyle(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\nbody {\npadding: 0;\nmargin: 0;\noverflow: hidden;\n}\n"], ["\nbody {\npadding: 0;\nmargin: 0;\noverflow: hidden;\n}\n"])));
 
 var App =
 /** @class */
@@ -38608,7 +38608,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "36429" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "44371" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -4,11 +4,11 @@ import { ThemeProvider, createGlobalStyle } from 'styled-components'
 import LoadingBar from './lib'
 
 const Reset = createGlobalStyle`
-	body {
-		padding: 0;
-		margin: 0;
-		overflow: hidden;
-	}
+body {
+padding: 0;
+margin: 0;
+overflow: hidden;
+}
 `
 
 class App extends React.Component {
@@ -74,7 +74,13 @@ class App extends React.Component {
 							onChange={this.changeMode}
 						/>
 					</div>
-					<div style={{ display: 'flex', justifyContent: 'center', marginTop: '3em' }}>
+					<div
+						style={{
+							display: 'flex',
+							justifyContent: 'center',
+							marginTop: '3em'
+						}}
+					>
 						<button onClick={this.updateLoader}>Loading</button>
 						<button onClick={this.finish}>Finish Loading</button>
 					</div>
