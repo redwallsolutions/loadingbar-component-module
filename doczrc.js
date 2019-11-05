@@ -1,6 +1,6 @@
 export default {
     typescript: true,
     ignore: ['README.md'],
-    base: '/loading-bar-component-module/',
+    base: '/loadingbar-component-module/',
     dest: 'demo/output'
 }
