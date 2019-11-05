@@ -1,6 +1,6 @@
 {
-  "name": "@redwallsolutions/loading-bar-component-module",
-  "version": "2.1.0",
+  "name": "@redwallsolutions/loadingbar-component-module",
+  "version": "2.1.1",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -8,7 +8,7 @@
   "files": [
     "dist"
   ],
-  "repository": "https://github.com/redwallsolutions/loading-bar-component-module",
+  "repository": "https://github.com/redwallsolutions/loadingbar-component-module",
   "scripts": {
     "start": "rimraf demo/output && parcel demo/index.html -d demo/output --open",
     "build": "rimraf dist && tsc",
