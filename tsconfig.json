@@ -10,7 +10,8 @@
     "jsx": "react",
     "declaration": true,
     "rootDir": "./src/lib",
-    "outDir": "./dist"
+    "outDir": "./dist",
+    "removeComments": false
   },
   "exclude": [
     "src/*.tsx"

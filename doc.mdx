@@ -1,0 +1,122 @@
+---
+name: Loading Bar Component Module
+route: /
+---
+
+import { useState } from 'react'
+import { Props, Playground } from 'docz'
+import Loading from './src/lib'
+import { ThemeProvider } from 'styled-components'
+
+## Introduction
+
+Loading Bar Component is a react component that creates a loading bar at the top of the page.
+The current progress are controlled by passing a props `progress` that goes from 0 to 100.
+
+![demogif](src/lib/assets/demo.gif)
+
+## Installation
+
+Create a file called `.npmrc` on your root project folder and add the following content to it:
+
+	@redwallsolutions:registry="https://npm.pkg.github.com"
+
+Now, just install it with `npm` or `yarn`.
+
+	npm install @redwallsolutions/loading-bar-component-module
+	yarn add @redwallsolutions/loading-bar-component-module --update-checksums
+
+Import it as a normal `npm` module
+
+		import Loading from '@redwallsolutions/loading-bar-component-module'
+
+## Props
+
+<Props of={Loading} />
+
+## Usage
+
+The minimal setup is to call `<Loading progress={somenumber 0 ~ 100}/>` where progress is a number from 0 to 100.
+Look the next example, where we passed a number state and then change state randomly when click on first button.
+
+The second button changes the progress state to 100. It makes component to execute a finish animation and to trigger a `onFinish` function prop.
+
+<Playground>
+	{() => {
+		const [progress, setProgress] = useState(0)
+		return (
+			<>
+				<button onClick={() => setProgress(Math.random() * 100)}>
+					Random Progress
+				</button>
+				<button onClick={() => setProgress(100)}>Finish Loading</button>
+				<Loading progress={progress} />
+			</>
+		)
+	}}
+</Playground>
+
+<br/>
+<br/>
+
+**Changing the appearance**
+
+<Playground>
+	{() => {
+		const [appearance, setAppearance] = useState('primary')
+		const [progress, setProgress] = useState(0)
+		return (
+			<>
+				<div>
+					<button onClick={() => setProgress(50)}>Loading 50%</button>
+					<button onClick={() => setProgress(100)}>Finish Loading</button>
+				</div>
+				<label htmlFor="primary">Primary</label>
+				<input
+					id="primary"
+					type="radio"
+					name="appearance"
+					onChange={() => setAppearance('primary')}
+				/>
+				<label htmlFor="default">Default</label>
+				<input
+					id="default"
+					type="radio"
+					name="appearance"
+					onChange={() => setAppearance('default')}
+				/>
+				<label htmlFor="secondary">Secondary</label>
+				<input
+					id="secondary"
+					type="radio"
+					name="appearance"
+					onChange={() => setAppearance('secondary')}
+				/>
+				<Loading progress={progress} appearance={appearance} />
+			</>
+		)
+	}}
+</Playground>
+
+<br/>
+<br/>
+
+**Custom color to appearances**
+
+There's a way to customize the default color for each appearance.
+
+<Playground>
+	{()=>{
+		const [progress, setProgress] = useState(0)
+		const [primary, setPrimary] = useState('blue')
+		const getRandomNumberUntil255 = ()=> Math.ceil(Math.random() * 255)
+		return (
+			<>
+			<button onClick={()=>setProgress(50)}>Loading 50%</button>
+			<button onClick={()=>setPrimary(`rgb(${getRandomNumberUntil255()}, ${getRandomNumberUntil255()}, ${getRandomNumberUntil255()})`)}>Randomize Primary Color</button>
+			<button onClick={()=>setProgress(100)}>Finish Loading</button>
+			<Loading progress={progress} appearance="primary" theme={{mode: 'light', primary}}/>
+			</>
+		)
+	}}
+</Playground>

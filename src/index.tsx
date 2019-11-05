@@ -44,7 +44,7 @@ class App extends React.Component {
 
 	render() {
 		return (
-			<ThemeProvider theme={{ mode: this.state.mode }}>
+			<ThemeProvider theme={{ mode: this.state.mode}}>
 				<div
 					style={{
 						transition: 'all .3s',
@@ -94,5 +94,7 @@ class App extends React.Component {
 		)
 	}
 }
+
+export default App
 
 render(<App />, document.getElementById('root'))

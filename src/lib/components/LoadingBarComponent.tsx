@@ -11,9 +11,9 @@ import { ILoadingBarProps } from './interfaces'
 
 const LoadingBarComponent: React.FC<ILoadingBarProps> = ({
 	progress = 0,
-	appearance = "primary",
+	appearance = 'primary',
 	onFinish,
-	theme
+	theme = {mode: 'light'}
 }) => {
 	useEffect(() => {
 		if (progress >= 100 && onFinish) {
@@ -35,9 +35,9 @@ const LoadingBarComponent: React.FC<ILoadingBarProps> = ({
 			<Reset />
 			{progress > -1 && progress < 101 && (
 				<>
-					<LoadingBarStyled progress={progress} appearance={appearance} />
-					<SpinnerContainer progress={progress}>
-						<ScaleLoader height={10} color={color} />
+					<LoadingBarStyled progress={progress} appearance={appearance} theme={theme}/>
+					<SpinnerContainer progress={progress} theme={theme}>
+						<ScaleLoader height={10} color={color}/>
 					</SpinnerContainer>
 				</>
 			)}
