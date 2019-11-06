@@ -1,6 +1,6 @@
 {
   "name": "@redwallsolutions/loadingbar-component-module",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -29,11 +29,12 @@
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "rimraf": "^2.6.3",
-    "styled-components": "^4.4.0",
     "typescript": "3.6.4"
   },
   "dependencies": {
+    "@redwallsolutions/common-interfaces-ts": "^1.0.1",
     "@redwallsolutions/theming-component-module": "^2.0.1",
+    "styled-components": "^4.4.0",
     "color": "3.1.2",
     "react-spinners": "^0.6.1"
   },

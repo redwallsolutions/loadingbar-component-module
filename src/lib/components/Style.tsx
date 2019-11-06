@@ -1,6 +1,13 @@
 import styled, { createGlobalStyle, keyframes } from 'styled-components'
 import { createThemeWithAppearance } from '@redwallsolutions/theming-component-module'
-import { ICommonProps } from './interfaces'
+import { ICommonProps } from '@redwallsolutions/common-interfaces-ts'
+
+interface ILoadingBarStyled extends ICommonProps {
+	/**
+	 * Overrided progress props to avoid TS runtime warning that this props might be undefined.
+	 */
+	progress: number
+}
 
 export const theme = createThemeWithAppearance()
 
@@ -29,7 +36,7 @@ const hideLoadingBar = keyframes`
     }
 `
 
-export const LoadingBarStyled = styled.div<ICommonProps>`
+export const LoadingBarStyled = styled.div<ILoadingBarStyled>`
 	height: 3px;
 	box-shadow: 0 0 10px 0 ${props => theme(props).color};
 	background-color: ${props => theme(props).color};
@@ -45,7 +52,7 @@ export const LoadingBarStyled = styled.div<ICommonProps>`
 	left: 0;
 `
 
-export const SpinnerContainer = styled.div<ICommonProps>`
+export const SpinnerContainer = styled.div<ILoadingBarStyled>`
 	opacity: ${props =>
 		props.progress >= 1 && props.progress <= 100 ? '1' : '0'};
 	animation-delay: 2s;

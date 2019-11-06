@@ -1,28 +1,12 @@
-interface IThemeProps {
-	/**
-	 * A string prop passed to styled-component ThemeProvider component.
-	 */
-    mode: "light" | "dark"
-}
+import { ICommonProps } from '@redwallsolutions/common-interfaces-ts'
 
-export interface ICommonProps {
+export interface ILoadingBar extends ICommonProps {
 	/**
-	 * A progress number that goes from 0 to 100.
+	 * The progress prop defines the size the loadingbar size.
 	 */
-	progress: number
+	progress?: number
 	/**
-	 * A string prop that defines 3 types of appearances.
+	 * The onFinish callback is a function that is called just after the loadingbar ending animation.
 	 */
-	appearance?: 'default' | 'primary' | 'secondary'
-	/**
-	 * Theme prop.
-	 */
-	theme: IThemeProps
-}
-
-export interface ILoadingBarProps extends ICommonProps {
-	/**
-	 * Function that is called after loading bar finish its end animation.
-	 */
-	onFinish?: (finished:Promise<void>) => void
+	onFinish?: (finished:Promise<void>)=>void
 }

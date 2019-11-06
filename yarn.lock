@@ -1333,6 +1333,11 @@
   version "2.0.2"
   resolved "https://npm.pkg.github.com/download/@redwallsolutions/color-pallete-component-module/2.0.2/c63e656f780d36da484a1249ea1d8e46be2696e8753a1c1bef376871e820c939#"
 
+"@redwallsolutions/common-interfaces-ts@^1.0.1":
+  version "1.0.1"
+  resolved "https://npm.pkg.github.com/download/@redwallsolutions/common-interfaces-ts/1.0.1/a5e750d8cee749229d4765e27a3d365fe26566c350606b616caf6994a78e9877#"
+  integrity sha512-s3vh3qZl+8hTgSmdInIqj9zk+JwjT7kkp2jIdGEF7q1r5G4JGfOo5sxzkU67FyY8ZX0XJWcEUm56fF/l68Fxjg==
+
 "@redwallsolutions/theming-component-module@^2.0.1":
   version "2.0.1"
   resolved "https://npm.pkg.github.com/download/@redwallsolutions/theming-component-module/2.0.1/78af873164c4d19f0982b83d6c3fbbd1bf804ffd0ecd4b155e6a309333e5f7b9#"

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useContext } from 'react'
 import {
 	Reset,
 	LoadingBarStyled,
@@ -6,19 +6,19 @@ import {
 	theme as theming
 } from './Style'
 import ScaleLoader from 'react-spinners/ScaleLoader'
-import { withTheme } from 'styled-components'
-import { ILoadingBarProps } from './interfaces'
+import { ILoadingBar } from './interfaces'
+import { ThemeContext } from 'styled-components'
 
-const LoadingBarComponent: React.FC<ILoadingBarProps> = ({
+const LoadingBarComponent: React.FC<ILoadingBar> = ({
 	progress = 0,
 	appearance = 'primary',
 	onFinish,
-	theme = {mode: 'light'}
+	theme = { mode: 'light' }
 }) => {
 	useEffect(() => {
 		if (progress >= 100 && onFinish) {
 			onFinish(
-				new Promise((resolve) => {
+				new Promise(resolve => {
 					setTimeout(() => {
 						resolve()
 					}, 800)
@@ -26,18 +26,23 @@ const LoadingBarComponent: React.FC<ILoadingBarProps> = ({
 			)
 		}
 	}, [progress, onFinish])
-	const color = theming({ theme: { ...theme }, appearance }).color({
-		theme: { ...theme },
+	const themeToApply = useContext(ThemeContext) || theme
+	const color = theming({ theme: { ...themeToApply }, appearance }).color({
+		theme: { ...themeToApply },
 		appearance
-    })
+	})
 	return (
 		<div className="loading-bar-component-module">
 			<Reset />
 			{progress > -1 && progress < 101 && (
 				<>
-					<LoadingBarStyled progress={progress} appearance={appearance} theme={theme}/>
-					<SpinnerContainer progress={progress} theme={theme}>
-						<ScaleLoader height={10} color={color}/>
+					<LoadingBarStyled
+						progress={progress}
+						appearance={appearance}
+						theme={themeToApply}
+					/>
+					<SpinnerContainer progress={progress} theme={themeToApply}>
+						<ScaleLoader height={10} color={color} />
 					</SpinnerContainer>
 				</>
 			)}
@@ -45,4 +50,4 @@ const LoadingBarComponent: React.FC<ILoadingBarProps> = ({
 	)
 }
 
-export default withTheme(LoadingBarComponent)
+export default LoadingBarComponent
