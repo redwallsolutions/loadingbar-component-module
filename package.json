@@ -1,5 +1,16 @@
 {
   "name": "@redwallsolutions/loadingbar-component-module",
+  "author": "Andrew Ribeiro",
+  "description": "Loading Bar Component is a react component that creates a loading bar at the top of the page.",
+  "keywords": [
+    "loading",
+    "loading bar",
+    "loadingbar",
+    "topbar",
+    "pace",
+    "loading-simulation",
+    "redwall"
+  ],
   "version": "2.1.2",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -11,40 +22,35 @@
   "repository": "https://github.com/redwallsolutions/loadingbar-component-module",
   "scripts": {
     "start": "rimraf demo/output && parcel demo/index.html -d demo/output --open",
+    "test": "echo \"No tests specified.\"",
     "build": "rimraf dist && tsc",
     "docz:dev": "docz dev",
     "docz:build": "rimraf demo/output && docz build",
     "predeploy": "rimraf demo/output && yarn docz:build",
-    "deploy": "gh-pages -d demo/output",
-    "release": "yarn build && npm publish"
+    "deploy": "gh-pages -d demo/output"
   },
   "devDependencies": {
     "@babel/core": "^7.6.4",
     "@types/react-dom": "16.9.2",
     "@types/styled-theming": "^2.2.2",
     "babel-preset-react-app": "^9.0.2",
-    "docz": "^2.0.0-rc.69",
+    "docz": "^2.0.0-rc.75",
     "gh-pages": "^2.1.1",
     "parcel-bundler": "^1.12.4",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "rimraf": "^2.6.3",
-    "typescript": "3.6.4"
+    "typescript": "^3.7.2"
   },
   "dependencies": {
-    "@redwallsolutions/common-interfaces-ts": "^1.0.1",
-    "@redwallsolutions/theming-component-module": "^2.0.1",
-    "styled-components": "^4.4.0",
+    "@redwallsolutions/common-interfaces-ts": "^1.0.2",
+    "@redwallsolutions/theming-component-module": "^2.0.2",
     "color": "3.1.2",
-    "react-spinners": "^0.6.1"
+    "react-spinners": "^0.6.1",
+    "styled-components": "^4.4.0"
   },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ],
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
+    "registry": "https://registry.npmjs.org",
+    "access": "public"
   }
 }

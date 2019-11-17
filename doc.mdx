@@ -17,18 +17,15 @@ The current progress are controlled by passing a props `progress` that goes from
 
 ## Installation
 
-Create a file called `.npmrc` on your root project folder and add the following content to it:
+Installing it using `yarn`:
 
-	@redwallsolutions:registry="https://npm.pkg.github.com"
+	yarn add @redwallsolutions/loadingbar-component-module
 
-Now, just install it with `npm` or `yarn`.
+Or using `npm`:
 
-	npm install @redwallsolutions/loadingbar-component-module
-	yarn add @redwallsolutions/loadingbar-component-module --update-checksums
+	npm i @redwallsolutions/loadingbar-component-module
 
-Import it as a normal `npm` module
 
-		import Loading from '@redwallsolutions/loadingbar-component-module'
 
 ## Props
 
@@ -36,10 +33,9 @@ Import it as a normal `npm` module
 
 ## Usage
 
-The minimal setup is to call `<Loading progress={somenumber 0 ~ 100}/>` where progress is a number from 0 to 100.
-Look the next example, where we passed a number state and then change state randomly when click on first button.
+The minimal setup to use this component is to call `<Loading progress={number}>` where progress is a number from 0 to 100.
+Look the next example, we passed a number state and then change state randomly when click on first button.
 
-The second button changes the progress state to 100. It makes component to execute a finish animation and to trigger a `onFinish` function prop.
 
 <Playground>
 	{() => {
@@ -56,67 +52,64 @@ The second button changes the progress state to 100. It makes component to execu
 	}}
 </Playground>
 
-<br/>
-<br/>
+The second button changes the progress state to 100. It makes component to execute a finish animation and to trigger a `onFinish` function prop.
 
-**Changing the appearance**
+## Customizing
+
+You can customize the loadingbar component through `appearance` and `theme` properties.
+
+### Theme Prop
+
+The `theme` is a property used by (theming-component-module)[https://github.com/redwallsolutions/theming-component-module]. It 
+accepts an `object` with the following structure:
+
+	{
+        mode: 'light' | 'dark',
+        default?: 'any color string'
+        primary?: 'any color string',
+        secondary?: 'any color string',
+        defaultContrast?: 'any color string',
+        primaryContrast?: 'any color string',
+        secondaryContrast?: 'any color string',
+        defaultDark?: 'any color string',
+        primaryDark?: 'any color string',
+        secondaryDark?: 'any color string',
+        defaultContrastDark?: 'any color string',
+        primaryContrastDark?: 'any color string',
+        secondaryContrastDark?: 'any color string'
+    }
+
+The only `theme` object attribute that is required is `mode`, it can accept either `light` or `dark` value. 
+The others attributes are optional and can receive a string color.
+It can be a **hex**, **rgb**, or any format you want.
+
+### Appearance prop
+
+The `appearance` is a property used to apply the correspondent `theme attribute` to customize the component.
+For example, if you pass the following component props:
+
+	<Loading theme={{mode:'light', secondary: 'blue'}} appearance="secondary" .../>
+
+Then the loadingbar will use *secondary* value passed to `appearance` prop and customize all colors related to `theme attribute` **secondary** value.
+As you assigned `blue` to *secondary* `theme attribute`, the loadingbar now is **blue**. 
+
+Check this out:
 
 <Playground>
-	{() => {
-		const [appearance, setAppearance] = useState('primary')
-		const [progress, setProgress] = useState(0)
-		return (
-			<>
+	{
+		()=>{
+			const [progress, setProgress] = useState(0)
+			async function onFinish(finished){
+				await finished
+				setProgress(-1)
+				setProgress(0)
+			}
+			return (
 				<div>
-					<button onClick={() => setProgress(50)}>Loading 50%</button>
-					<button onClick={() => setProgress(100)}>Finish Loading</button>
+					<button onClick={()=>{setProgress(100)}}>Loadingbar is blue! :)</button>
+					<Loading theme={{mode:'light', secondary: 'blue'}} appearance="secondary" progress={progress} onFinish={onFinish}/>
 				</div>
-				<label htmlFor="primary">Primary</label>
-				<input
-					id="primary"
-					type="radio"
-					name="appearance"
-					onChange={() => setAppearance('primary')}
-				/>
-				<label htmlFor="default">Default</label>
-				<input
-					id="default"
-					type="radio"
-					name="appearance"
-					onChange={() => setAppearance('default')}
-				/>
-				<label htmlFor="secondary">Secondary</label>
-				<input
-					id="secondary"
-					type="radio"
-					name="appearance"
-					onChange={() => setAppearance('secondary')}
-				/>
-				<Loading progress={progress} appearance={appearance} />
-			</>
-		)
-	}}
-</Playground>
-
-<br/>
-<br/>
-
-**Custom color to appearances**
-
-There's a way to customize the default color for each appearance.
-
-<Playground>
-	{()=>{
-		const [progress, setProgress] = useState(0)
-		const [primary, setPrimary] = useState('blue')
-		const getRandomNumberUntil255 = ()=> Math.ceil(Math.random() * 255)
-		return (
-			<>
-			<button onClick={()=>setProgress(50)}>Loading 50%</button>
-			<button onClick={()=>setPrimary(`rgb(${getRandomNumberUntil255()}, ${getRandomNumberUntil255()}, ${getRandomNumberUntil255()})`)}>Randomize Primary Color</button>
-			<button onClick={()=>setProgress(100)}>Finish Loading</button>
-			<Loading progress={progress} appearance="primary" theme={{mode: 'light', primary}}/>
-			</>
-		)
-	}}
+			)
+		}
+	}
 </Playground>
