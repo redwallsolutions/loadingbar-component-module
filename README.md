@@ -5,4 +5,4 @@ The current progress are controlled by passing a props `progress` that goes from
 
 ![demogif](src/lib/assets/demo.gif)
 
-[Read Documentation](https://redwallsolutions.github.io/loading-bar-component-module)
+[Read Documentation](https://redwallsolutions.github.io/loadingbar-component-module)
